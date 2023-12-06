@@ -1,6 +1,6 @@
-use std::io::BufReader;
-use std::io::prelude::*;
 use std::fs::File;
+use std::io::prelude::*;
+use std::io::BufReader;
 use std::path::PathBuf;
 
 use anyhow::Result;
@@ -25,8 +25,14 @@ fn main() -> Result<()> {
 
     // Open file and create a buffer reader to avoid large in-memory reads
     let file: File = match File::open(&file_path) {
-        Ok(file) => { file }
-        Err(error) => { panic!("\n! Error reading '{}'\n    {}\n", file_path.display(), error)}
+        Ok(file) => file,
+        Err(error) => {
+            panic!(
+                "\n! Error reading '{}'\n    {}\n",
+                file_path.display(),
+                error
+            )
+        }
     };
     let buf_reader: BufReader<File> = BufReader::new(file);
 
