@@ -1,7 +1,16 @@
 [package]
 name = "rust-grep"
-version = "0.2.0"
-edition = "2021"
+version = "0.1.0"
+edition = "2023"
+authors = ["mei.riccardo96@gmail.com"]
+license = "MIT"
+description = "A simple command-line tool replicating 'grep' in Rust."
+readme = "README.md"
+homepage = "https://github.com/richim96"
+repository = "https://github.com/richim96/rust-grep"
+keywords = ["cli", "search", "demo"]
+categories = ["command-line-utilities"]
+
 
 [dependencies]
 anyhow = "1.0.75"
