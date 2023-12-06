@@ -6,10 +6,6 @@ use std::path::PathBuf;
 use anyhow::Result;
 use clap::Parser;
 
-// Set custuom error handler
-#[derive(Debug)]
-struct CustomError(String);
-
 // Set cli parser
 #[derive(Parser)]
 struct Cli {
@@ -40,12 +36,10 @@ fn main() -> Result<()> {
     println!("\nMATCHING LINES:");
     for (line_number, reader_result) in buf_reader.lines().enumerate() {
         let line: String = reader_result.unwrap();
-
         if line.contains(&pattern) {
             println!("({}) {}", line_number, line.trim());
         }
     }
     println!();
-
     Ok(())
 }
